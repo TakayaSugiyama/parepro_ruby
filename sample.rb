@@ -10,21 +10,7 @@ c = [1,8,4,9,5,7,8,4,2,0]
 
 def bucket_sort(arr)
  # こちらに処理を書いてください
- array = Array.new(10, 0) 
-
- arr.each do |a|
-    array[a] = array[a] + 1 
- end
-
- results = []
- i = 0
- array.each do |a|
-    a.times do 
-      results << i
-    end
-    i = i + 1
- end
-  results
+  arr.group_by(&:itself).sort.to_h.values.flatten
 end
 
 p bucket_sort(a)
